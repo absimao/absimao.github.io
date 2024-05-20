@@ -5,42 +5,57 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Error 500</title>
 
+  <script src="/assets/artia/artia.page_shell_messages.js"></script>
+  <script src="/assets/artia/helpers/hosts.js"></script>
+  <script>
+		const host = Object.keys(Artia.hosts).find(key => location.host.includes(key));
+		Artia.front_end_url = Artia.hosts[host] || Artia.hosts['default'];
+		Artia.PageShellMessages.artiaAccessError('500');
+  </script>
+
 <style type="text/css">
 html, body {height: 100%}
-#error-info, #cthulhu {
-	float:left;
-}
-#error-info {
-	width: 60%;
-	z-index: 999;
+
+#geral {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  display: block;
-	overflow: visible;
-}
-#cthulhu {
-	width: 40%
-}
-#geral{
-	position: relative;
-	top: 250px;
-	width: 600px;
-	margin: 0 auto;
-	overflow: overlay;
+  height: 100vh;
+  margin: auto;
+  overflow: overlay;
 }
 body{
 	font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Ubuntu, Roboto, Oxygen, Cantarell, Arial, sans-serif;
 	background: #fff;
 }
-h4{color: #495057;font-size: 18px;margin-bottom:40px;font-weight: 600;width: 270px;}
+h4{
+  color: #000000;
+  font-size: 16px;
+  margin-bottom:40px;
+  font-weight: 700;
+  width: auto;
+}
 h4 span {
 	font-weight: 400;
 	font-size: 16px;
 }
-h1{background-size: 100%;height: 66px;margin: 0 0 35px;width: 200px;text-indent: -9999px;}
+p{
+	color: #333;
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: -0.035em;
+	padding-bottom:10px
+}
 p a{
-	color: #00C1B3;
-	font-size: 14px;
-	padding-left: 10px;
+	background: url('/seta_esquerda_nova.png') no-repeat left center;
+	background-position: 15%;
+	color: #34BBBE;
+	border: 1px solid #34BBBE;
+	border-radius: 6px;
+	padding: 8px 14px 8px 40px;
+	font-size: 16px;
 	font-weight: 500;
 }
 *{
@@ -53,9 +68,10 @@ p a{
 	-o-transition: all 0.2s linear;
 	transition: all 0.2s linear;
 }
-p{color: #333;font-size: 16px;font-weight: bold;letter-spacing: -0.035em;padding-bottom:10px}
-a{text-decoration: none; outline:none;}
-
+a{
+	text-decoration: none;
+	outline:none;
+}
 
 .shake {
 		-webkit-animation-name: shake;
@@ -198,17 +214,17 @@ a{text-decoration: none; outline:none;}
 
 	<div id="geral"> <!-- inicio#geral -->
 
-		<div id="error-info" class="element-animation">
-			<img class="erro shake" style="height: 66px;margin: 0 0 35px;width: auto;" src="/logo-404.png" />
-			<h4>Ops, falha nossa!<br><br><span>O Artia apresentou um erro interno e estamos trabalhando nisso.</span></h4>
-			<p><a href="http://app.artia.com/">Voltar para o Artia</a></p>
+		<div>
+			<img style="height: 66px;margin: 0 0 35px;width: auto;" src="/logo_error.png" />
+			<h4>Ops! Ocorreu um problema<br><br>
+				<span>O artia apresentou um erro interno e estamos analisando o que aconteceu.
+					<br>
+					Caso este erro persista, <a href="https://artia.movidesk.com/Kb", style="color: #34BBBE">contate nosso suporte</a>.
+				</span>
+			</h4>
+			
+			<p><a href="http://app.artia.com/">Voltar</a></p>
 		</div>
-
-		<div id="cthulhu">
-			<img class="erro shake" src="/mascote_500.png" />
-		</div>
-
-  ::CLOUDFLARE_ERROR_500S_BOX::
 
 	</div> <!-- fim#geral -->
 
